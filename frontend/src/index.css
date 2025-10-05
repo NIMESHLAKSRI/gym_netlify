@@ -1,0 +1,529 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+/* Base styles */
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #1a1c1b;
+    color: #d9fb06;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+  :root {
+    /* Gym Theme Colors - Pixel Pushers Style */
+    --gym-page: #1a1c1b;                       /* Main black background */
+    --gym-card: #302f2c;                       /* Dark gray card backgrounds */
+    --gym-light: #dfddd6;                      /* Light backgrounds when needed */
+    
+    /* Text Colors */
+    --gym-primary: #d9fb06;                    /* Lime green primary text */
+    --gym-secondary: #888680;                  /* Mid gray supporting text */
+    --gym-muted: #302f2c;                      /* Dark gray muted text */
+    --gym-inverse: #1a1c1b;                    /* Black text on light backgrounds */
+    
+    /* Border Colors */
+    --gym-border-light: rgba(63, 72, 22, 0.5); /* Subtle olive-tinted borders */
+    --gym-border-medium: #3f4816;              /* Standard olive borders */
+    --gym-border-strong: #888680;              /* Strong gray borders */
+    
+    /* Brand Colors */
+    --gym-brand-primary: #d9fb06;              /* Primary lime green */
+    --gym-brand-hover: rgba(217, 251, 6, 0.8); /* Hover state */
+    --gym-brand-active: rgba(217, 251, 6, 0.6); /* Active/pressed state */
+    
+    /* Secondary Palette */
+    --gym-secondary-olive: #3f4816;            /* Dark olive green */
+    --gym-secondary-yellow: #f8d47a;           /* Warm yellow accent */
+    --gym-secondary-blue: #0073e6;             /* Blue for links */
+    --gym-neutral-white: white;                /* Pure white */
+    --gym-neutral-light: #dfddd6;              /* Light neutral */
+    
+    /* Shadcn defaults */
+    --background: #1a1c1b;
+    --foreground: #d9fb06;
+    --card: #302f2c;
+    --card-foreground: #d9fb06;
+    --popover: #302f2c;
+    --popover-foreground: #d9fb06;
+    --primary: #d9fb06;
+    --primary-foreground: #1a1c1b;
+    --secondary: #3f4816;
+    --secondary-foreground: #d9fb06;
+    --muted: #302f2c;
+    --muted-foreground: #888680;
+    --accent: #3f4816;
+    --accent-foreground: #d9fb06;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: #3f4816;
+    --input: #302f2c;
+    --ring: #d9fb06;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Typography System - Pixel Pushers Style */
+@layer components {
+  /* Impact Headlines */
+  .brand-display { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 900; 
+    font-size: clamp(6rem, 5.2571rem + 3.0476vw, 8rem); 
+    line-height: 0.76; 
+    color: var(--gym-primary);
+    text-transform: uppercase;
+    letter-spacing: 0px;
+  }
+  
+  /* Headlines */
+  .heading-1 { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 900; 
+    font-size: clamp(3rem, 2.5rem + 2vw, 5rem); 
+    line-height: 0.9; 
+    text-transform: uppercase;
+    color: var(--gym-primary);
+  }
+  
+  .heading-2 { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 900; 
+    font-size: clamp(2.5rem, 2rem + 2vw, 4rem); 
+    line-height: 0.9; 
+    text-transform: uppercase;
+    color: var(--gym-primary);
+  }
+  
+  .heading-3 { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 900; 
+    font-size: clamp(2rem, 1.5rem + 2vw, 3rem); 
+    line-height: 0.9; 
+    text-transform: uppercase; 
+    color: var(--gym-secondary-olive); 
+  }
+  
+  .heading-4 { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 600; 
+    font-size: 1.5rem; 
+    line-height: 1.2; 
+    color: var(--gym-primary);
+  }
+  
+  .heading-5 { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 600; 
+    font-size: 1.2rem; 
+    line-height: 1.2; 
+    color: var(--gym-primary);
+  }
+  
+  .heading-6 { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 600; 
+    font-size: 1rem; 
+    line-height: 1.2; 
+    color: var(--gym-primary);
+  }
+  
+  /* Body text */
+  .body-large { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 500; 
+    font-size: 1.5rem; 
+    line-height: 1.4; 
+    color: var(--gym-primary); 
+  }
+  
+  .body-medium { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 500; 
+    font-size: 1.25rem; 
+    line-height: 1.3; 
+    color: var(--gym-primary); 
+  }
+  
+  .body-small { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 500; 
+    font-size: 1rem; 
+    line-height: 1.2; 
+    color: var(--gym-secondary); 
+  }
+  
+  .caption { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 500; 
+    font-size: 0.8rem; 
+    line-height: 1.2; 
+    color: var(--gym-secondary); 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+  }
+  
+  /* Interactive elements */
+  .button-text { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 600; 
+    font-size: 1rem; 
+    line-height: 1.1em; 
+    letter-spacing: -0.04em; 
+  }
+  
+  .link-text { 
+    font-family: 'Inter', Arial, sans-serif; 
+    font-weight: 500; 
+    font-size: 1rem; 
+    line-height: 1.4; 
+    color: var(--gym-brand-primary); 
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Primary Buttons */
+  .btn-primary {
+    background: var(--gym-brand-primary);
+    color: var(--gym-inverse);
+    border: none;
+    border-radius: 10rem;
+    padding: 1em 1.5em;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 48px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1em;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+    background: var(--gym-brand-hover);
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+  
+  /* Secondary Buttons */
+  .btn-secondary {
+    background: transparent;
+    color: var(--gym-brand-primary);
+    border: 1px solid var(--gym-brand-primary);
+    border-radius: 10rem;
+    padding: 1em 1.5em;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 48px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1em;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  
+  .btn-secondary:hover {
+    background: var(--gym-brand-primary);
+    color: var(--gym-inverse);
+    transform: scale(1.02);
+  }
+  
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    color: var(--gym-primary);
+    text-decoration: none;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1em 1.5em;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-link:hover {
+    color: var(--gym-brand-hover);
+  }
+  
+  .nav-link:active {
+    color: var(--gym-brand-active);
+  }
+}
+
+/* Layout Components */
+@layer components {
+  /* Hero Section */
+  .hero-section {
+    background: var(--gym-page);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 0px 80px;
+    overflow: hidden;
+  }
+  
+  .hero-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+  }
+  
+  .hero-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0%;
+  }
+  
+  .hero-overlay {
+    opacity: 0.6;
+    background-image: linear-gradient(135deg, #000, transparent);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 15ch;
+  }
+  
+  .hero-title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 900;
+    font-size: clamp(6rem, 5.2571rem + 3.0476vw, 8rem);
+    line-height: 0.76;
+    color: var(--gym-primary);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  
+  /* Event Cards */
+  .event-card {
+    background: var(--gym-secondary-olive);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 43.75rem;
+    overflow: hidden;
+  }
+  
+  .event-card-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 50%;
+    min-height: 43.75rem;
+  }
+  
+  .event-card-image {
+    width: 100%;
+    max-width: 50%;
+    min-height: 43.75rem;
+    position: relative;
+  }
+  
+  .event-card-title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 0.9;
+    color: var(--gym-primary);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  /* Team/About Cards */
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.15s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    border: 0.5px solid var(--gym-border-medium);
+  }
+  
+  .team-card:hover {
+    background-color: var(--gym-border-medium);
+  }
+  
+  .team-card-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 21rem;
+    position: relative;
+  }
+  
+  .team-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 21rem;
+  }
+  
+  /* Grid Layout */
+  .pixel-pushers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 20px;
+    padding: 40px;
+    max-width: 87.5rem;
+    margin: 0 auto;
+  }
+  
+  /* Creative Ribbon Animation */
+  .creative-ribbon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120%;
+    height: 4.125rem;
+    background-color: var(--gym-brand-primary);
+    color: var(--gym-inverse);
+    position: absolute;
+    bottom: 30%;
+    transform: rotate(7.95deg);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .creative-ribbon-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120%;
+    height: 4.125rem;
+    background-color: var(--gym-secondary-olive);
+    color: var(--gym-primary);
+    position: absolute;
+    bottom: 25%;
+    transform: rotate(-5.22deg);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+/* Responsive Design */
+@layer components {
+  .container {
+    max-width: 87.5rem; /* 1400px */
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  @media (max-width: 767px) {
+    .container {
+      padding: 0 20px;
+    }
+    
+    .hero-section {
+      padding: 40px 20px;
+      min-height: 80vh;
+    }
+    
+    .event-card-content,
+    .event-card-image {
+      max-width: 100%;
+      min-height: 30rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      min-height: 52px;
+    }
+    
+    .team-card-image,
+    .team-card-content {
+      min-height: auto;
+    }
+    
+    .pixel-pushers-grid {
+      padding: 20px;
+      gap: 20px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .pixel-pushers-grid {
+      gap: 30px 20px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .pixel-pushers-grid {
+      gap: 40px 32px;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-gym-page { color: var(--gym-page); }
+  .text-gym-card { color: var(--gym-card); }
+  .text-gym-light { color: var(--gym-light); }
+  .text-gym-primary { color: var(--gym-primary); }
+  .text-gym-secondary { color: var(--gym-secondary); }
+  .text-gym-muted { color: var(--gym-muted); }
+  .text-gym-inverse { color: var(--gym-inverse); }
+  
+  .bg-gym-page { background-color: var(--gym-page); }
+  .bg-gym-card { background-color: var(--gym-card); }
+  .bg-gym-light { background-color: var(--gym-light); }
+  .bg-gym-primary { background-color: var(--gym-primary); }
+  .bg-gym-secondary { background-color: var(--gym-secondary); }
+  
+  .border-gym-border-light { border-color: var(--gym-border-light); }
+  .border-gym-border-medium { border-color: var(--gym-border-medium); }
+  .border-gym-border-strong { border-color: var(--gym-border-strong); }
+}
